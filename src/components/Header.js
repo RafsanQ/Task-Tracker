@@ -1,13 +1,21 @@
 import { cloneNode } from '@babel/types';
 import PropTypes from 'prop-types'
+import Button from './button';
 
 export const Header = (props) => {
     return (
-        <header>
-            <h1 style={headingStyle}>{props.title}</h1>
-            <h1 style={headingStyle2}>{props.job}</h1>
+        <header className='header'>
+            <h1 >{props.title}</h1>
+            <Button color = 'green' text = 'Hello1' onClick = {onClickFucntion}/>
+            <Button color = 'red' text = 'Hello2' onClick = {onClickFucntion}/>
+            <Button color = 'blue' text = 'Hello3' onClick = {onClickFucntion}/>
+            <Button text = 'someButton'/>
         </header>
     )
+}
+
+const onClickFucntion = (e)=>{
+    console.log('click from header')
 }
 
 Header.defaultProps = {
