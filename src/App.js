@@ -28,10 +28,25 @@ function App() {
     ]
   )
 
+  // Delete a Task Function
+  const deleteTask = (id) => {
+    setTasks(tasksList.filter(
+      (tasksList) => tasksList.id !== id
+    ))
+  }
+
+  let Body;
+
+  if(tasksList.length > 0)
+    Body = <Tasks taskList = {tasksList} onDelete={deleteTask} /> 
+  else
+    Body = <h1>No Tasks</h1> 
+
   return (
     <div className="container">
       <Header /> 
-      <Tasks taskList = {tasksList}/>
+      {Body}
+        
     </div>
   );
 
